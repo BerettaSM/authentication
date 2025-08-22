@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: Authentication App
+    profiles:
+        active: dev
+    jpa:
+        open-in-view: false
+ 
