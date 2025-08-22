@@ -1,4 +1,4 @@
-package com.ramon.authentication.security.config;
+package com.ramon.authentication.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
