@@ -5,13 +5,13 @@
     "description": "The client id"
   },
   {
-    "name": "security.client-secret",
-    "type": "java.lang.String",
-    "description": "A client secret, used to sign the tokens"
-  },
-  {
     "name": "security.jwt.duration-in-seconds",
     "type": "java.lang.Integer",
     "description": "Duration in seconds until the token expires"
+  },
+  {
+    "name": "security.jwt.secret",
+    "type": "java.lang.String",
+    "description": "A token secret, used to sign the tokens"
   }
 ]}
