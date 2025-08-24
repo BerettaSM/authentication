@@ -27,7 +27,7 @@ public class UnauthorizedException extends ApplicationException {
     }
 
     public UnauthorizedException() {
-        this("Unauthorized.");
+        this("Unauthorized");
     }
 
 }
