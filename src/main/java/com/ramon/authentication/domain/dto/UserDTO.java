@@ -23,6 +23,10 @@ public class UserDTO {
         password = null;
     }
 
+    public User toEntity() {
+        return new User(email, name, password);
+    }
+
     public static UserDTO from(User user) {
         return new UserDTO(user);
     }
