@@ -22,6 +22,7 @@ public class User {
     @Column(unique = true, nullable = false)
     @EqualsAndHashCode.Include
     private String email;
+    private String name;
     private String password;
     
 }
