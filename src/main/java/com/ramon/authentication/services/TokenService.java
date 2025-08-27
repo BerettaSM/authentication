@@ -31,14 +31,15 @@ public class TokenService {
                 .build();
     }
 
-    public String generateToken(User user) {
-        return JWT.create()
+    public DecodedJWT generateToken(User user) {
+        String token = JWT.create()
                 .withAudience(securityProps.getClientId())
                 .withIssuer(securityProps.getClientId())
                 .withIssuedAt(Instant.now())
                 .withExpiresAt(generateExpirationDate())
                 .withSubject(user.getEmail())
                 .sign(algorithm);
+        return JWT.decode(token);
     }
 
     public DecodedJWT verify(String token) {
