@@ -4,11 +4,13 @@ import java.time.Instant;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import com.ramon.authentication.domain.dto.CustomError;
+import com.ramon.authentication.domain.dto.CustomValidationError;
 import com.ramon.authentication.exceptions.ApplicationException;
 import com.ramon.authentication.utils.PathUtils;
 
@@ -28,6 +30,12 @@ public class ExceptionHandlerController {
             "Invalid path", 
             Instant.now(), 
             PathUtils.getCurrentPath());
+        return ResponseEntity.status(err.getStatus()).body(err);
+    }
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<CustomError> validationError(MethodArgumentNotValidException e) {
+        CustomError err = CustomValidationError.from(e);
         return ResponseEntity.status(err.getStatus()).body(err);
     }
 
